@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fit & Glow · 60 Días</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.png" type="image/x-icon">
+<style>
+:root {
+  --black:   #0a0a0a;
+  --dark:    #111008;
+  --dark2:   #1e1a0f;
+  --gold:    #c9a05a;
+  --gold-lt: #e8c97a;
+  --gold-dk: #9a7030;
+  --cream:   #f5f0e8;
+  --cream2:  #ede5d5;
+  --muted:   #8a7860;
+  --border:  #2a2010;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;
+  font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1;}
+body{font-family:'Lato',sans-serif;background:var(--black);color:var(--cream);line-height:1.7;overflow-x:hidden;}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,#0a0a0a 0%,#1a1208 50%,#0a0a0a 100%);
+  padding:80px 24px 60px;
+  text-align:center;
+  position:relative;
+  border-bottom:1px solid var(--border);
+}
+.hero::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:radial-gradient(ellipse at 60% 30%,rgba(201,160,90,0.08) 0%,transparent 60%);
+}
+.brand{font-size:9px;letter-spacing:7px;text-transform:uppercase;color:var(--gold-dk);font-weight:700;display:block;margin-bottom:20px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,7vw,4.2rem);font-weight:900;color:#fff;line-height:1.05;max-width:700px;margin:0 auto 18px;}
+.hero h1 span{color:var(--gold);}
+.hero p{font-size:clamp(1rem,2vw,1.15rem);max-width:560px;margin:0 auto 14px;color:var(--cream2);}
+.hero p strong{color:var(--gold-lt);}
+
+.hero-imgs{display:flex;justify-content:center;gap:16px;margin:44px auto 8px;max-width:860px;align-items:flex-end;flex-wrap:wrap;}
+.hero-imgs img{border-radius:10px;object-fit:cover;box-shadow:0 12px 50px rgba(0,0,0,0.6);}
+.hero-imgs .img-main{width:220px;height:290px;}
+.hero-imgs .img-sec{width:165px;height:215px;}
+
+/* ── BUTTONS ── */
+.btn{
+  display:inline-block;
+  background:linear-gradient(90deg,var(--gold-dk),var(--gold),var(--gold-lt),var(--gold));
+  color:var(--black);font-family:'Lato',sans-serif;font-weight:900;
+  font-size:1rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;
+  padding:18px 52px;border-radius:50px;margin:28px auto 6px;
+  box-shadow:0 8px 30px rgba(201,160,90,0.35);
+  transition:opacity .2s,transform .1s;
+}
+.btn:hover{opacity:.9;transform:scale(1.02);}
+.btn-note{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;display:block;margin-top:6px;}
+
+/* ── SECTIONS ── */
+.sec{padding:72px 24px;max-width:980px;margin:0 auto;}
+.sec-dark{background:var(--dark2);width:100%;padding:72px 24px;}
+.sec-dark .i{max-width:980px;margin:0 auto;}
+
+.label{font-size:9px;font-weight:900;letter-spacing:6px;text-transform:uppercase;color:var(--gold);text-align:center;display:block;margin-bottom:12px;}
+.title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;color:#fff;text-align:center;line-height:1.2;margin-bottom:8px;}
+.title span{color:var(--gold);}
+.subtitle{text-align:center;color:var(--muted);font-size:1rem;max-width:560px;margin:0 auto 44px;}
+
+.ornament{text-align:center;color:var(--gold-dk);font-size:14pt;letter-spacing:6px;padding:6px 0;}
+
+.divider{border:none;border-top:1px solid var(--border);margin:0;}
+
+/* ── STATS ── */
+.stats{display:flex;justify-content:center;gap:0;flex-wrap:wrap;margin:44px 0 0;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.stat{flex:1;min-width:160px;padding:28px 20px;text-align:center;border-right:1px solid var(--border);}
+.stat:last-child{border-right:none;}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;color:var(--gold);line-height:1;display:block;}
+.stat-lbl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+
+/* ── PILLARS ── */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px;}
+.pillar{background:rgba(201,160,90,0.06);border:1px solid var(--border);border-radius:12px;padding:28px 22px;text-align:center;}
+.pillar-icon{font-size:28px;margin-bottom:12px;display:block;}
+.pillar h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--gold-lt);margin-bottom:8px;}
+.pillar p{font-size:13px;color:var(--muted);line-height:1.6;}
+
+/* ── GALLERY ── */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:44px 0;}
+.gallery img{width:100%;border-radius:10px;object-fit:cover;height:200px;box-shadow:0 4px 20px rgba(0,0,0,0.5);}
+.gallery img:nth-child(2){height:250px;margin-top:-25px;}
+.gallery img:nth-child(5){height:250px;margin-top:-25px;}
+
+/* ── WHAT'S INSIDE ── */
+.modules{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:44px;}
+.mod{background:var(--dark2);border:1px solid var(--border);border-radius:10px;padding:20px;display:flex;gap:14px;align-items:flex-start;}
+.mod-num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--gold-dk);line-height:1;min-width:28px;}
+.mod h3{font-size:13px;font-weight:700;color:var(--gold-lt);margin-bottom:4px;letter-spacing:.5px;}
+.mod p{font-size:12px;color:var(--muted);line-height:1.55;}
+
+/* ── QUOTE ── */
+.big-quote{background:var(--dark2);border-left:4px solid var(--gold);padding:28px 32px;margin:48px 0;border-radius:0 10px 10px 0;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.1rem,2.5vw,1.4rem);color:var(--gold-lt);line-height:1.6;}
+
+/* ── CHECK LIST ── */
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;max-width:640px;margin:0 auto 36px;}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--cream2);}
+.dot{width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:5px;}
+
+/* ── PRICING ── */
+.price-box{background:var(--dark2);border:1px solid var(--gold-dk);border-radius:16px;padding:44px 36px;max-width:480px;margin:0 auto;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+.price-tag{font-size:9px;font-weight:900;letter-spacing:5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:20px;}
+.price-old{font-size:1.1rem;color:var(--muted);text-decoration:line-through;margin-bottom:4px;}
+.price-only{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.price-main{font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:900;color:#fff;line-height:1;margin:6px 0 18px;}
+.price-main sup{font-size:2rem;vertical-align:super;}
+
+/* ── GUARANTEE ── */
+.guarantee{background:rgba(201,160,90,0.06);border:1px solid var(--border);border-radius:12px;padding:24px 28px;max-width:580px;margin:36px auto 0;display:flex;align-items:center;gap:18px;}
+.guar-icon{font-size:40px;flex-shrink:0;}
+.guarantee h3{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--gold);margin-bottom:6px;}
+.guarantee p{font-size:13px;color:var(--muted);line-height:1.65;}
+
+/* ── FAQ ── */
+.faq-item{border-bottom:1px solid var(--border);padding:20px 0;}
+.faq-n{font-size:9px;font-weight:900;letter-spacing:3px;color:var(--gold-dk);margin-bottom:5px;display:block;}
+.faq-q{font-weight:700;font-size:14px;color:#fff;margin-bottom:7px;}
+.faq-a{font-size:13px;color:var(--muted);line-height:1.7;}
+
+/* ── FOOTER ── */
+footer{background:var(--dark2);border-top:1px solid var(--border);padding:28px 24px;text-align:center;font-size:12px;color:var(--muted);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .pillars{grid-template-columns:1fr;}
+  .modules{grid-template-columns:1fr;}
+  .gallery{grid-template-columns:1fr 1fr;}
+  .gallery img{height:140px !important;margin-top:0 !important;}
+  .stats{flex-direction:column;}
+  .stat{border-right:none;border-bottom:1px solid var(--border);}
+  .stat:last-child{border-bottom:none;}
+  .hero-imgs .img-main{width:200px;height:250px; object-fit: contain; background: transparent; mix-blend-mode: screen;
+  outline: none;
+  border: 0;
+  appearance: none;
+  box-shadow: none;
+  }
+  .hero-imgs .img-sec{width:120px;height:160px;}
+  .price-box{padding:30px 20px;}
+  .guarantee{flex-direction:column;text-align:center;}
+  .checks{grid-template-columns:1fr;}
+}
+@media(max-width:480px){
+  .gallery{grid-template-columns:1fr;}
+  .btn{padding:16px 32px;font-size:.9rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <span class="brand">@my.glow.up · Chicas del 1%</span>
+  <h1>El glow up que<br><span>se construye en el gym</span></h1>
+  <p>60 días de entrenamiento, nutrición y mentalidad.<br><strong>Tu mejor versión física — para siempre.</strong></p>
+
+  <div class="hero-imgs" style="background: none;">
+    <img class="img-main" src="libro.png" alt="Fit lifestyle" style="border-radius:10px;">
+  </div>
+
+  <a class="btn" href="https://pay.hotmart.com/">QUIERO MI FIT & GLOW — $8.97</a>
+  <span class="btn-note">📥 Descarga inmediata · PDF de 65 páginas</span>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ STATS ══ -->
+<div class="sec" style="padding-top:56px;padding-bottom:56px;">
+  <div class="stats">
+    <div class="stat"><span class="stat-num">8</span><div class="stat-lbl">Semanas de programa</div></div>
+    <div class="stat"><span class="stat-num">60</span><div class="stat-lbl">Días de transformación</div></div>
+    <div class="stat"><span class="stat-num">$8.97</span><div class="stat-lbl">Un solo pago</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ 3 PILARES ══ -->
+<div class="sec-dark">
+  <div class="i">
+    <span class="label">El sistema completo</span>
+    <h2 class="title">Los <span>3 pilares</span> del cambio físico real</h2>
+    <p class="subtitle">No basta con ir al gym. Las chicas que cambian trabajan los tres pilares al mismo tiempo.</p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <span class="pillar-icon">🏋️</span>
+        <h3>Entrenamiento de fuerza progresivo</h3>
+        <p>4 fases de 2 semanas cada una. Activación, construcción, intensificación y definición. Tu cuerpo siempre progresa, nunca se estanca.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">🥗</span>
+        <h3>Nutrición que sostiene el proceso</h3>
+        <p>Sin dietas extremas. Planes semanales de comida, recetas fit, cálculo de macros y estrategias para comer fuera sin sabotearte.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">🧠</span>
+        <h3>Mentalidad fit del 1%</h3>
+        <p>La diferencia entre las que llegan al día 60 y las que no es mental. Aquí está el protocolo para no rendirte cuando todo en ti quiere parar.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:44px;">
+      <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=900&q=80" alt="Entrenamiento femenino" style="width:100%;max-width:820px;border-radius:14px;height:320px;object-fit:cover;box-shadow:0 16px 60px rgba(0,0,0,0.6);">
+    </div>
+  </div>
+</div>
+
+<!-- ══ QUÉ INCLUYE ══ -->
+<div class="sec">
+  <span class="label">Contenido completo</span>
+  <h2 class="title">Todo lo que encuentras <span>dentro</span></h2>
+  <p class="subtitle">65 páginas estructuradas para que no te falte nada.</p>
+
+  <div class="modules">
+    <div class="mod"><div class="mod-num">01</div><div><h3>Evaluación inicial + metas</h3><p>Punto de partida real. Medidas, nivel de fitness, objetivos de los 60 días y la hoja de ruta completa.</p></div></div>
+    <div class="mod"><div class="mod-num">02</div><div><h3>Programa de entrenamiento 8 semanas</h3><p>Rutinas detalladas día a día con ejercicios, series, reps, técnica y progresión semana a semana.</p></div></div>
+    <div class="mod"><div class="mod-num">03</div><div><h3>Planes de nutrición semanales</h3><p>Qué comer cada día según tu objetivo. Planes distintos para perder grasa, ganar músculo y recomposición.</p></div></div>
+    <div class="mod"><div class="mod-num">04</div><div><h3>Recetas fit fáciles</h3><p>Desayunos, almuerzos, cenas, snacks y postres fit con macros calculados. Sin horas en la cocina.</p></div></div>
+    <div class="mod"><div class="mod-num">05</div><div><h3>Mentalidad + protocolo anti-rendición</h3><p>El sistema mental que usan las chicas que llegan al día 60. Disciplina, identidad y el protocolo para los días difíciles.</p></div></div>
+    <div class="mod"><div class="mod-num">06</div><div><h3>Trackers y plantillas completas</h3><p>Registro semanal de entrenamiento, diario de nutrición, tracker de hábitos, control de medidas y más.</p></div></div>
+  </div>
+</div>
+
+<!-- ══ GALERÍA ══ -->
+<div class="sec-dark">
+  <div class="i">
+    <span class="label">Un vistazo dentro</span>
+    <h2 class="title">Diseñado para que <span>realmente funcione</span></h2>
+    <p class="subtitle">No motivación vacía. Sistemas, tablas, protocolos y planes concretos.</p>
+
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=600&q=80" alt="Gym femenino">
+      <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80" alt="Meal prep fit">
+      <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80" alt="Entrenamiento">
+      <img src="https://images.unsplash.com/photo-1432139509613-5c4255815697?w=600&q=80" alt="Nutrición">
+      <img src="https://images.unsplash.com/photo-1581009137042-c552e485697a?w=600&q=80" alt="Pesas mujer">
+      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Yoga y stretching">
+    </div>
+  </div>
+</div>
+
+<!-- ══ PARA QUIÉN ══ -->
+<div class="sec">
+  <span class="label">¿Es para ti?</span>
+  <h2 class="title">Para la chica que quiere <span>resultados reales</span></h2>
+  <p class="subtitle" style="margin-bottom:32px;">Sin promesas mágicas. Sin dietas extremas. Solo un sistema que funciona.</p>
+
+  <div class="checks">
+    <div class="check"><div class="dot"></div><span>Quieres tonificar y sentirte fuerte — no solo delgada</span></div>
+    <div class="check"><div class="dot"></div><span>Has intentado antes y no sabes por qué no funcionó</span></div>
+    <div class="check"><div class="dot"></div><span>No tienes claro qué comer ni cuánta proteína necesitas</span></div>
+    <div class="check"><div class="dot"></div><span>Quieres un plan concreto — no más videos sueltos de YouTube</span></div>
+    <div class="check"><div class="dot"></div><span>Tienes poco tiempo y necesitas entrenamientos eficientes</span></div>
+    <div class="check"><div class="dot"></div><span>Quieres construir hábitos que se queden para siempre</span></div>
+  </div>
+
+  <div class="big-quote">
+    "El glow up más poderoso no es el que se ve desde afuera.<br>Es el que sientes cuando sabes que eres más fuerte que ayer."
+  </div>
+</div>
+
+<!-- ══ PRECIO ══ -->
+<div class="sec-dark">
+  <div class="i" style="text-align:center;">
+    <span class="label">Accede hoy</span>
+    <h2 class="title" style="margin-bottom:8px;">60 días que lo cambian <span>todo</span></h2>
+    <p class="subtitle">PDF de 65 páginas. Acceso inmediato. Tuyo para siempre.</p>
+
+    <div class="price-box">
+      <span class="price-tag">💛 Precio especial de lanzamiento</span>
+      <p class="price-old">Precio regular: $15.00 USD</p>
+      <p class="price-only">Hoy solo</p>
+      <p class="price-main"><sup>$</sup>8.97</p>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:20px;">USD · Un solo pago · Acceso inmediato</p>
+      <a class="btn" href="https://pay.hotmart.com/" style="display:block;margin:0 0 10px;">DESCARGAR FIT & GLOW</a>
+      <span class="btn-note">🔒 Pago seguro · Hotmart</span>
+      <p style="font-size:12px;color:var(--muted);margin-top:16px;padding-top:14px;border-top:1px solid var(--border);">Recibes el PDF en tu correo inmediatamente. Compatible con cualquier dispositivo.</p>
+    </div>
+
+    <div class="guarantee">
+      <div class="guar-icon">🛡️</div>
+      <div>
+        <h3>Garantía incondicional de 7 días</h3>
+        <p>Si en los primeros 7 días no estás satisfecha, te devolvemos el <strong style="color:var(--cream);">100% de tu dinero</strong>. Sin preguntas. Sin riesgo.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FAQ ══ -->
+<div class="sec" style="max-width:680px;">
+  <span class="label">Preguntas frecuentes</span>
+  <h2 class="title" style="margin-bottom:36px;">Lo que más nos <span>preguntan</span></h2>
+
+  <div class="faq-item">
+    <span class="faq-n">01.</span>
+    <p class="faq-q">¿Necesito ir al gimnasio obligatoriamente?</p>
+    <p class="faq-a">No. El ebook incluye adaptaciones completas para entrenar en casa con peso corporal o mancuernas. El resultado puede ser un poco más lento, pero funciona igual.</p>
+  </div>
+
+  <div class="faq-item">
+    <span class="faq-n">02.</span>
+    <p class="faq-q">¿Funciona si soy principiante?</p>
+    <p class="faq-a">Perfecto para principiantes. Las primeras 2 semanas son de activación y aprendizaje de técnica. La progresión está diseñada para cualquier nivel.</p>
+  </div>
+
+  <div class="faq-item">
+    <span class="faq-n">03.</span>
+    <p class="faq-q">¿Cómo recibo el ebook?</p>
+    <p class="faq-a">Inmediatamente después del pago recibes el enlace de descarga en tu correo. Es instantáneo — sin esperas.</p>
+  </div>
+
+  <div class="faq-item">
+    <span class="faq-n">04.</span>
+    <p class="faq-q">¿Puedo usarlo si tengo poco tiempo?</p>
+    <p class="faq-a">Sí. Los entrenamientos están entre 45-60 minutos. Si tienes menos tiempo, hay versiones condensadas de 30-35 minutos en el programa.</p>
+  </div>
+</div>
+
+<!-- ══ CIERRE ══ -->
+<div class="sec-dark" style="text-align:center;">
+  <div class="i">
+    <div class="ornament" style="margin-bottom:16px;">✦ ✦ ✦</div>
+    <h2 class="title" style="margin-bottom:10px;">En 60 días serás<br><span>la evidencia de que sí se puede.</span></h2>
+    <p class="subtitle">PDF de 65 páginas · $8.97 USD · Acceso inmediato</p>
+    <a class="btn" href="https://pay.hotmart.com/">EMPEZAR HOY — FIT & GLOW</a>
+    <span class="btn-note">🛡️ Garantía 7 días · Sin riesgo</span>
+  </div>
+</div>
+
+<footer>
+  <p style="margin-bottom:5px;"><strong style="color:var(--gold);">@my.glow.up</strong> · Fit &amp; Glow · Chicas del 1%</p>
+  <p>Producto digital · PDF · Todos los derechos reservados</p>
+</footer>
+
+</body>
+</html>
